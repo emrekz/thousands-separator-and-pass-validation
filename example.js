@@ -3,12 +3,12 @@
 let firstNumber = 0;
 let onlyNumberRegex = /^[0-9]*$/;
 let onlyNumber = [];
-document.getElementById("firstNumber").addEventListener("change", function(){
+document.getElementById("firstNumber").addEventListener("input", function(){
 	firstNumber =   document.getElementById("firstNumber").value;
 	let onlyNumber = firstNumber.match(onlyNumberRegex);
 	if(onlyNumber == null){
 		document.getElementById('resultLabel').className  = 'alert alert-danger'
-		document.getElementById('resultLabel').innerHTML = 'It is not number !';
+		document.getElementById('resultLabel').innerHTML = "It's not a number !";
 	}
 	else{
 		setFirstNumber(firstNumber)
@@ -55,7 +55,7 @@ function resNumberFunc(){
 /*------------- Password Validation - Begin -----------------*/
 
 let firstPass;
-document.getElementById("pass").addEventListener("change", function(){
+document.getElementById("pass").addEventListener("input", function(){
 	firstPass =  document.getElementById("pass").value;
 	document.getElementById("resultLabel2").innerHTML = '';
 	checkPass();
@@ -76,23 +76,23 @@ function checkPass(){
 
 	
 	if(spC == null){
-		document.getElementById("resultLabel2").innerHTML += resultHtml + "Must contain least a special character (eg. '#!?%:+) !"+ "</div>"
+		document.getElementById("resultLabel2").innerHTML += resultHtml + "Must contain at least a special character (eg. '#!?%:+) !"+ "</div>"
 	}
 	if(lwC == null){
-		document.getElementById("resultLabel2").innerHTML += resultHtml+"Must contain least a lowercase (a-z) !"+ "</div>"
+		document.getElementById("resultLabel2").innerHTML += resultHtml+"Must contain at least a lowercase (a-z) !"+ "</div>"
 	}
 	if(upC == null){
-		document.getElementById("resultLabel2").innerHTML += resultHtml+"Must contain least a uppercase (A-Z) !"+ "</div>"
+		document.getElementById("resultLabel2").innerHTML += resultHtml+"Must contain at least an uppercase (A-Z) !"+ "</div>"
 	}
 	if(n == null){
-		document.getElementById("resultLabel2").innerHTML += resultHtml+"Must contain least a number (0-9) !"+ "</div>"
+		document.getElementById("resultLabel2").innerHTML += resultHtml+"Must contain at least a number (0-9) !"+ "</div>"
 	}
 	if(firstPassLength > 15 || firstPassLength < 8){
 		document.getElementById("resultLabel2").innerHTML += resultHtml+"Length of password must be 8-15 character !"+ "</div>"
 	}
 
 	if(spC != null && lwC != null && upC != null && n != null && (firstPassLength <= 15 && firstPassLength >= 8)){
-		document.getElementById("resultLabel2").innerHTML = "<div class='alert alert-success' role='alert' id='resultLabel2'>Password Success</div>"
+		document.getElementById("resultLabel2").innerHTML = "<div class='alert alert-success' role='alert' id='resultLabel2'>Success !</div>"
 	}
 }
 
